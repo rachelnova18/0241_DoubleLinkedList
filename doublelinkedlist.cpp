@@ -159,3 +159,23 @@ bool listEmpty()
     return (START == NULL);
 }
 
+// prosedur traverse untuk menampilkan data secara urut
+void traverse()
+{
+    if (listEmpty())
+    {
+        cout << "\nList is empty" << endl;
+    }
+    else
+    {
+        cout << "\nRecords in ascending order of roll number are: " << endl;
+        Node *currentNode = START;
+        while (currentNode != NULL)
+        {
+            cout << currentNode->noMhs << endl;
+            currentNode = currentNode->next;
+        }
+        cout << endl;
+    }
+}
+
