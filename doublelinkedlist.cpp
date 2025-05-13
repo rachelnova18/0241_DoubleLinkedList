@@ -49,4 +49,41 @@ void addNode()
         START = newNode;      // step 6: make the new node the first node
     }
     // kondisi jika semua kondisi if tidak terpenuhi
-    
+    else
+    {
+        // insert the new node in the middle or at the end
+        // set nilai current = start dan nilai previous = null
+        Node *current = START; // step 1.a: start from the first node
+        Node *previous = NULL; // step 1.b: previous node is null initially
+
+        // looping selama current != null dan noMhs dari current lebih kecil dari noMhs node baru
+        while (current != NULL && current->noMhs < newNode->noMhs)
+        {                            // step 1.c: traverse the list to find the correct position
+            previous = current;      // step 1.d: move the previous to the current node
+            current = current->next; // step 1.e: move the current to the next node
+        }
+
+        // set nilai next node baru = current dan prev node baru = previous
+        newNode->next = current;  // step 4: make the next field of the new node point to the current node
+        newNode->prev = previous; // step 5: make the previous field of the new node point to the previous node
+
+        // kondisi jika current tidak sama dengan null
+        if (current != NULL)
+        {
+            current->prev = newNode; // step 6: make the previous field of the current node point to the new node
+        }
+
+        // kondisi jika previous tidak sama dengan null
+        if (previous != NULL)
+        {
+            previous->next = newNode; // step 7: make the next field of the previous node point to the new node
+        }
+        // kondisi jika if previous sama dengan null
+        else
+        {
+            // if previous is still null, it means newNode is now the first node
+            START = newNode;
+        }
+    }
+}
+
