@@ -221,3 +221,50 @@ void searchData()
 }
 
 int main()
+{
+    // perulangan selama bernilai benar untuk program utama double lineked list
+    while (true)
+    {
+        try
+        {
+            cout << "\nMenu" << endl;
+            cout << "1. add a record to the list" << endl;
+            cout << "2. Delete a record from the list" << endl;
+            cout << "3. view all records in the asscending order of roll number" << endl;
+            cout << "4. view all records in the descending order of roll number" << endl;
+            cout << "5. Search for a record in the list" << endl;
+            cout << "6. Exit" << endl;
+            cout << "\nEnter your choice (1-6): ";
+            char ch;
+            cin >> ch;
+
+            switch (ch)
+            {
+            case '1':
+                addNode();
+                break;
+            case '2':
+                deleteNode();
+                break;
+            case '3':
+                traverse();
+                break;
+            case '4':
+                revtraverse();
+                break;
+            case '5':
+                searchData();
+                break;
+            case '6':
+                return 0;
+            default:
+                cout << "\nInvalid choice" << endl;
+                break;   
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "check for the values entered" << endl;
+        }
+    }
+}
